@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'dreams/index'
 
   resources :dreams
 
-  get 'dreams/show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
