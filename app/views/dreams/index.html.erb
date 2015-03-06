@@ -5,7 +5,8 @@
 
     <h2>Add new dream</h2>
     <div class="dream-form">
-      <%= form_for(Dream.new) do |f| %>
+      <%= form_for(@dream) do |f| %>
+      <%= render 'shared/error_messages' %>
         <div class="form-group">
           <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
         </div>

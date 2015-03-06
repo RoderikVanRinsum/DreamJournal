@@ -1,6 +1,7 @@
 class DreamsController < ApplicationController
   def index
     @dreams = Dream.all
+    @dream = Dream.new
   end
 
   def show
@@ -14,6 +15,7 @@ class DreamsController < ApplicationController
       flash[:success] = 'Dream was successfully added'
       redirect_to @dream
     else
+      @dreams = Dream.all
       render 'index'
     end
   end
