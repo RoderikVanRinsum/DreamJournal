@@ -1,0 +1,19 @@
+<div class="col-md-6 col-md-offset-2">
+  <section class="main-content">
+    <h1>Dream index</h1>
+    <button class="btn btn-primary" id="add-dream">Add dream</button>
+    <% @dreams.each do |dream| %>
+      <article>
+       <h3><%= link_to dream.name, dream %></h3>
+       <p><%= dream.description %></p>
+      </article>
+    <% end %>
+  </section>
+</div>
+
+<div class="col-md-2">
+  <aside class="search-sidebar">
+    <h2>Search dreams</h2>
+    <p>Browse dreams here</p>
+  </aside>
+</div>
