@@ -1,0 +1,74 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html {
+  overflow-y: scroll;
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 60px;
+  background-color: #eeeeee;
+  margin-bottom: 100px;
+}
+
+#logo {
+  float: left;
+}
+
+.navbar {
+  background-color: #330033;
+}
+
+#logo {
+  color: white;
+}
+
+section {
+  padding: 25px;
+}
+
+footer {
+  background-color: #555555;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+article {
+  display: none;
+  border-top: 1px solid #bbbbbb;
+  margin-top: 20px
+}
+
+#add-dream {
+  background-color: #553355;
+  border-color: #330033;
+}
+
+aside {
+  text-align: center;
+  margin: auto;
+  padding: 25px;
+}
+
+.well {
+  width: 50%;
+}
+
+.main-content, .search-sidebar {
+  background-color: white;
+  margin-top: 25px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+
+
+
+
+
+
+
