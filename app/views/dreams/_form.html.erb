@@ -1,0 +1,15 @@
+<%= form_for(@dream) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <div class="form-group">
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :description, class: 'form-control', placeholder: 'Description' %>
+  </div>
+  <div class="form-group">
+    <%= f.date_select :date, class: 'form-control', placeholder: 'Date' %>
+  </div>
+  <div class='form-group'>
+    <%= f.submit class: 'btn btn-primary', id: 'create-dream' %>
+  </div>
+<% end %>

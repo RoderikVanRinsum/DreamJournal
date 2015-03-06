@@ -2,7 +2,7 @@
 ready = ->
   $('#add-dream').on "click", (e) ->
     e.preventDefault()
-    $('article').slideToggle()
+    $('.dream-form').slideToggle()
 
 $(document).ready ready
 $(document).on 'page:load', ready

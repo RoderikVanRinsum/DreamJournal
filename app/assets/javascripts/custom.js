@@ -4,7 +4,7 @@ var ready;
 ready = function() {
   return $('#add-dream').on("click", function(e) {
     e.preventDefault();
-    return $('article').slideToggle();
+    return $('.dream-form').slideToggle();
   });
 };
 
