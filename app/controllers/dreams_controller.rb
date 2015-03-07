@@ -2,6 +2,7 @@ class DreamsController < ApplicationController
   def index
     @dreams = Dream.all
     @dream = Dream.new
+    @form_hidden = true
   end
 
   def show
@@ -16,7 +17,7 @@ class DreamsController < ApplicationController
       redirect_to @dream
     else
       @dreams = Dream.all
-      render 'index'
+      render 'index', locals: {form_hidden: false}
     end
   end
 

@@ -21,6 +21,10 @@ textarea {
   float: left;
 }
 
+.dream-form {
+  display: none;
+}
+
 .navbar {
   background-color: #330033;
 }
@@ -39,10 +43,6 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-}
-
-.dream-form {
-  display: none;
 }
 
 article {

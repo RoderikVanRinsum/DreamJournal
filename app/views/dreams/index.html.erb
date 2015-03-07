@@ -1,10 +1,12 @@
 <h1>Dream index</h1>
 <button class="btn btn-primary" id="add-dream">Add dream</button>
 
-<div class="dream-form">
-  <h2>Add new dream</h2>
-  <%= render 'form' %>
-</div>
+<!-- pass variable to JS -->
+<%= javascript_tag do %>
+  window.form_hidden = '<%= @form_hidden %>';
+<% end %>
+
+<%= render 'form' %>
 
 <%= render @dreams %>
 
