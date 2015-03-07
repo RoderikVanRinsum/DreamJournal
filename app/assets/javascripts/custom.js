@@ -11,3 +11,7 @@ ready = function() {
 $(document).ready(ready);
 
 $(document).on('page:load', ready);
+
+$(document).on('click', '#create-dream', function() {
+  return $('.dream-form').slideDown();
+});
