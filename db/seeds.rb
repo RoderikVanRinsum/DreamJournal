@@ -8,13 +8,15 @@
 
 Dream.destroy_all
 
-20.times do
+20.times do |i|
   name = Faker::Lorem.sentence
   description = Faker::Lorem.paragraph(7)
   date = Faker::Time.forward(20)
+  lucid = (i > 10 ? true : false)
   Dream.create( name: name,
                 description: description,
-                date: date)
+                date: date,
+                lucid: lucid)
 end
 
 puts "Created #{Dream.count} books!"
