@@ -1,0 +1,10 @@
+<h1>Dreamsigns#index</h1>
+<p>Find me in app/views/dreamsigns/index.html.erb</p>
+
+<% @dreamsigns.each do |dreamsign| %>
+  <h3>Name: </h3>
+  <p><%= dreamsign.name %></p>
+  <h3>Description: </h3>
+  <p><%= dreamsign.description %></p>
+<% end %>
+
