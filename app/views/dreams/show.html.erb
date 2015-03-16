@@ -8,8 +8,8 @@
 <p><%= @dream.lucid ? "Yes" : "No" %></p>
 <h3>Dream Signs in this dream:</h3>
 <ul>
-  <li>Sign 1</li>
-  <li>Sign 2</li>
-  <li>Sign 3</li>
+  <% @dream.dreamsigns.each do |dreamsign| %>
+    <li><%= dreamsign.name %></li>
+  <% end %>
 </ul>
 <%= link_to "<- back to dreams", dreams_path %>
