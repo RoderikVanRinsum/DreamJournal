@@ -7,6 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Dream.destroy_all
+Dreamsign.destroy_all
+
+Dreamsign.create(name: "Running",
+                 description: "You are running away for something, you don't know what. It's dangerous.")
+Dreamsign.create(name: "Hurry",
+                 description: "You're hurrying to the airport to catch your flight.")
 
 20.times do |i|
   name = Faker::Lorem.sentence
@@ -20,3 +26,4 @@ Dream.destroy_all
 end
 
 puts "Created #{Dream.count} books!"
+puts "Created #{Dreamsign.count} dreamsigns!"
