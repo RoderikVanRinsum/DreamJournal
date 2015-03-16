@@ -9,20 +9,24 @@
 Dream.destroy_all
 Dreamsign.destroy_all
 
-Dreamsign.create(name: "Running",
+running = Dreamsign.create!(name: "Running",
                  description: "You are running away for something, you don't know what. It's dangerous.")
-Dreamsign.create(name: "Hurry",
+hurry = Dreamsign.create!(name: "Hurry",
                  description: "You're hurrying to the airport to catch your flight.")
+closed_eyes = Dreamsign.create!(name: "Eyes closed",
+                                description: "You're trying to open your eyes, but it's impossible.")
 
 20.times do |i|
   name = Faker::Lorem.sentence
   description = Faker::Lorem.paragraph(7)
   date = Faker::Time.forward(20)
   lucid = (i > 10 ? true : false)
+  signs = (i < 10 ? [running] : [running, hurry, closed_eyes] )
   Dream.create( name: name,
                 description: description,
                 date: date,
-                lucid: lucid)
+                lucid: lucid,
+  dreamsigns: signs)
 end
 
 puts "Created #{Dream.count} books!"
