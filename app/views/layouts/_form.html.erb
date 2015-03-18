@@ -8,10 +8,15 @@
       <%= text_field_tag :keyword, params[:keyword], class: 'form-control', placeholder: 'Keyword' %>
     </div>
 
+    <div class="form-group">
+      <%= check_box_tag :lucid, 'true', params[:lucid] %>
+      <%= label_tag :lucid, 'Lucid only', class: 'checkbox-inline' %>
+    </div>
+
     <div class-"form-group">
       <%= submit_tag "Search", class: 'btn btn-primary' %>
     </div>
-    
+
   <% end %>
 
 </div>
