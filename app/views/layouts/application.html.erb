@@ -18,21 +18,20 @@
     
     <div class="container">
       <div class="row">
+
         <div class="col-md-6 col-md-offset-2">
           <section class="main-content">
-
             <%= yield %>
-
           </section>
         </div>
 
         <div class="col-md-2">
           <aside class="search-sidebar">
-            <h2>Search dreams</h2>
-            <p>Browse dreams here</p>
+            <%= render 'layouts/form' %>
           </aside>
         </div>
-      </div>
+
+      </div> <!-- row -->
     </div> <!-- container -->
 
     <%= render 'layouts/footer' %>
