@@ -7,6 +7,7 @@ class Dream < ActiveRecord::Base
 
   scope :search, ->(keyword) { where('keywords LIKE ?', "%#{keyword.downcase}%") if keyword.present? }
   scope :lucid?, ->(is_lucid) { where( lucid: true ) if is_lucid == 'true' }
+  scope :between, ->(from, to) { where('date between ? and ?', from, to) if from && to }
 
   before_save :set_keywords
 

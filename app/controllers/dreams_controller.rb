@@ -1,6 +1,9 @@
 class DreamsController < ApplicationController
   def index
-    @dreams = Dream.search(params[:keyword]).lucid?(params[:lucid]).order("date DESC")
+    
+    parse_date if params[:from] && params[:to]
+
+    @dreams = Dream.between(@date_from, @date_to).search(params[:keyword]).lucid?(params[:lucid]).order("date DESC")
     @dream = Dream.new
     @form_hidden = true
   end
@@ -25,4 +28,16 @@ class DreamsController < ApplicationController
     def dream_params
       params.require(:dream).permit(:name, :description, :date, :lucid, dreamsign_ids: [] )
     end
+
+    def parse_date
+      from = params[:from]
+      to = params[:to]
+      if (from["date(1)"] && from["date(2i)"] && from["date(3i)"] && 
+         to["date(1i)"] && to["date(2i)"] && to["date(3i)"])
+      
+        @date_from = Date.new from["date(1i)"].to_i, from["date(2i)"].to_i, from["date(3i)"].to_i
+        @date_to = Date.new to["date(1i)"].to_i, to["date(2i)"].to_i, to["date(3i)"].to_i
+      end
+    end
+    
 end
