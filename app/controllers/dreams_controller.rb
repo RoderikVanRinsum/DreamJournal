@@ -16,7 +16,7 @@ class DreamsController < ApplicationController
       flash[:success] = 'Dream was successfully added'
       redirect_to @dream
     else
-      @dreams = Dream.all
+      @dreams = Dream.order("created_at DESC")
       render 'index', locals: {form_hidden: false}
     end
   end
