@@ -16,12 +16,12 @@ hurry = Dreamsign.create!(name: "Hurry",
 closed_eyes = Dreamsign.create!(name: "Eyes closed",
                                 description: "You're trying to open your eyes, but it's impossible.")
 
-20.times do |i|
+50.times do |i|
   name = Faker::Lorem.sentence
   description = Faker::Lorem.paragraph(7)
-  date = Faker::Time.backward(20)
-  lucid = (i > 10 ? true : false)
-  signs = (i < 10 ? [running] : [running, hurry, closed_eyes] )
+  date = Faker::Time.backward(60)
+  lucid = (rand > 0.5 ? true : false)
+  signs = (rand < 0.5 ? [running] : [running, hurry, closed_eyes] )
   Dream.create( name: name,
                 description: description,
                 date: date,
