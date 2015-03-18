@@ -5,7 +5,7 @@ class Dream < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
 
-  scope :search, ->(keyword) { where('description LIKE ?', "%#{keyword.downcase}%") if keyword.present? }
+  scope :search, ->(keyword) { where('keywords LIKE ?', "%#{keyword.downcase}%") if keyword.present? }
 
   before_save :set_keywords
 
