@@ -2,21 +2,29 @@
   <h2>Add new dream</h2>
   <%= form_for(@dream) do |f| %>
     <%= render 'shared/error_messages' %>
+
     <div class="form-group">
       <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
     </div>
+
     <div class="form-group">
       <%= f.text_area :description, rows: 7, class: 'form-control', placeholder: 'Description' %>
     </div>
+
     <div class="form-group">
       <%= f.check_box :lucid %>
       <%= f.label :lucid, 'Lucid?', class: 'checkbox-inline' %>
     </div>
 
     <div class='form-group'>
-      <label><strong>Dreamsigns</strong></label>
-      <%= f.collection_check_boxes(:dreamsign_ids, Dreamsign.all, :id, :name) %>
+      <label>Dreamsigns:</label>
+      <%= f.collection_check_boxes(:dreamsign_ids, Dreamsign.all, :id, :name) do |b| %>
+        <br>
+        <%= b.check_box %>
+        <%= b.label(class: 'checkbox-inline') %>
+      <% end %>
     </div>
+
     <div class="form-group">
       <%= f.datetime_select :date, class: 'form-control', placeholder: 'Date' %>
     </div>
