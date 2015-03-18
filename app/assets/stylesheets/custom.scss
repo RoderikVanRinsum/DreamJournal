@@ -19,6 +19,10 @@ textarea {
 
 #logo {
   float: left;
+  text-transform: uppercase;
+  &:hover {
+    text-decoration: none
+  }
 }
 
 .dream-form {
@@ -31,7 +35,10 @@ textarea {
 }
 
 #logo {
+  float: left;
+  font-size: 2em;
   color: white;
+  margin-top: 5px;
 }
 
 .checkbox-inline {
