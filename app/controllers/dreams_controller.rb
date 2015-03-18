@@ -1,6 +1,6 @@
 class DreamsController < ApplicationController
   def index
-    @dreams = Dream.order("created_at DESC")
+    @dreams = Dream.search(params[:keyword]).order("created_at DESC")
     @dream = Dream.new
     @form_hidden = true
   end
