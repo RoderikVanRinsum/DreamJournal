@@ -1,4 +1,5 @@
 class DreamsController < ApplicationController
+
   def index
     
     parse_date if params[:from] && params[:to]
@@ -32,9 +33,9 @@ class DreamsController < ApplicationController
     def parse_date
       from = params[:from]
       to = params[:to]
-      if (from["date(1)"] && from["date(2i)"] && from["date(3i)"] && 
-         to["date(1i)"] && to["date(2i)"] && to["date(3i)"])
-      
+
+      if (from["date(1i)"].present? && from["date(2i)"].present? && from["date(3i)"].present? && 
+          to["date(1i)"].present? && to["date(2i)"].present? && to["date(3i)"].present?)
         @date_from = Date.new from["date(1i)"].to_i, from["date(2i)"].to_i, from["date(3i)"].to_i
         @date_to = Date.new to["date(1i)"].to_i, to["date(2i)"].to_i, to["date(3i)"].to_i
       end
