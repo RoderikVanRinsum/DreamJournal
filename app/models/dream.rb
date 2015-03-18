@@ -6,4 +6,11 @@ class Dream < ActiveRecord::Base
   validates :description, presence: true
 
   scope :search, ->(keyword) { where('description LIKE ?', "%#{keyword.downcase}%") if keyword.present? }
+
+  before_save :set_keywords
+
+  protected
+    def set_keywords
+      self.keywords = [name, description].map(&:downcase).join(' ')
+    end
 end
