@@ -19,7 +19,7 @@ closed_eyes = Dreamsign.create!(name: "Eyes closed",
 20.times do |i|
   name = Faker::Lorem.sentence
   description = Faker::Lorem.paragraph(7)
-  date = Faker::Time.forward(20)
+  date = Faker::Time.backward(20)
   lucid = (i > 10 ? true : false)
   signs = (i < 10 ? [running] : [running, hurry, closed_eyes] )
   Dream.create( name: name,
