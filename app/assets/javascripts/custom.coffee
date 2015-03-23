@@ -6,7 +6,6 @@ ready = ->
                                                      # opening and closing on heroku
     e.preventDefault()
     $('.dream-form').slideToggle(700)
-    return false
 
 $(document).ready ready
 $(document).on 'page:load', ready

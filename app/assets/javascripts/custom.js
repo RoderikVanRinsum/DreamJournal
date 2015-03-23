@@ -9,8 +9,7 @@ ready = function() {
   }
   return $('#add-dream').unbind('click').on("click", function(e) {
     e.preventDefault();
-    $('.dream-form').slideToggle(700);
-    return false;
+    return $('.dream-form').slideToggle(700);
   });
 };
 
