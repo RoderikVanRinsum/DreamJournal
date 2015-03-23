@@ -7,10 +7,11 @@ ready = function() {
   } else {
     $('.dream-form').show();
   }
-  return $('#add-dream').on("click", function(e) {
+  return $('#add-dream').unbind('click').on("click", function(e) {
     e.preventDefault();
     e.stopPropagation();
-    return $('.dream-form').slideToggle(700);
+    $('.dream-form').slideToggle(700);
+    return false;
   });
 };
 
