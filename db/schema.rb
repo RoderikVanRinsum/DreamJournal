@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324150717) do
+ActiveRecord::Schema.define(version: 20150324154124) do
 
   create_table "dream_dreamsigns", force: :cascade do |t|
     t.integer  "dream_id"
@@ -46,5 +46,7 @@ ActiveRecord::Schema.define(version: 20150324150717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
