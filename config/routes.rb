@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
   get 'dreamsigns' => 'dreamsigns#index'
   resources :dreams
+  get 'signup' => 'users#new'
 
   root 'dreams#index'
 
