@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'dreamsigns' => 'dreamsigns#index'
   resources :dreams
+  resources :users
   get 'signup' => 'users#new'
 
   root 'dreams#index'
