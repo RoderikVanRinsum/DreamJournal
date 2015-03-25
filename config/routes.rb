@@ -1,16 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
-
-  get 'users/new'
-
   get 'dreamsigns' => 'dreamsigns#index'
   resources :dreams
   resources :users
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  get 'logout' => 'sessions#destroy'
+  delete 'logout' => 'sessions#destroy'
 
   root 'dreams#index'
 
