@@ -1,0 +1,4 @@
+roderik:
+  name: Roderik van Rinsum
+  email: test@test.test
+  password_digest: <%= User.digest('password') %>
