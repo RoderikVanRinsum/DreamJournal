@@ -11,5 +11,10 @@ describe Dream do
   it "is invalid without description" do
     expect(FactoryGirl.build(:dream, description: nil)).not_to be_valid
   end
+
+  it "has a unique name" do
+    FactoryGirl.create(:dream, name: "Double")
+    expect(FactoryGirl.build(:dream, name: "Double")).not_to be_valid
+  end
   it "returns a dream's keywords as a string"
 end
