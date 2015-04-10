@@ -21,8 +21,13 @@ describe Dream do
     expect(FactoryGirl.build(:dream, name: "Double")).not_to be_valid
   end
 
-  it "returns a dream's keywords as a string" do
+  it "returns a dream's keywords as a string after creation" do
     dream = FactoryGirl.create(:dream, name: "Name", description: "desc")
     expect(dream.keywords).to eq("name desc")
+  end
+
+  it "changes keywords on update" do 
+    dream = FactoryGirl.create(:dream, name: "old", description: "desc")
+    expect{dream.update(name: "new")}.to change{dream.keywords}.from("old desc").to("new desc")
   end
 end
