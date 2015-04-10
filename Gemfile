@@ -21,6 +21,7 @@ group :development, :test do
   gem 'rspec-its'
   gem 'factory_girl_rails'
   gem 'faker',                '1.4.2'
+  gem 'shoulda-matchers'
 end
 
 group :test do
