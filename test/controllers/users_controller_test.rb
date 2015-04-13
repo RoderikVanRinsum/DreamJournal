@@ -12,6 +12,12 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should redirect show when not logged in" do
+    get :show, id: @user
+    assert_not flash.empty?
+    assert_redirected_to login_url
+  end
+
   test "should redirect edit when not logged in" do
     get :edit, id: @user
     assert_not flash.empty?
@@ -22,6 +28,13 @@ class UsersControllerTest < ActionController::TestCase
     patch :update, id: @user, user: { name: @user.name, email: @user.email }
     assert_not flash.empty?
     assert_redirected_to login_url
+  end
+
+  test "should redirect show when logged in as wrong user" do
+    log_in_as(@other_user)
+    get :show, id: @user
+    assert flash.empty?
+    assert_redirected_to root_url
   end
 
   test "should redirect edit when logged in as wrong user" do
@@ -37,5 +50,7 @@ class UsersControllerTest < ActionController::TestCase
     assert flash.empty?
     assert_redirected_to root_url
   end
+
+
 
 end
