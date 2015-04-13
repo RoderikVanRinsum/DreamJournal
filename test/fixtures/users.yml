@@ -3,7 +3,7 @@ roderik:
   email: test@test.test
   password_digest: <%= User.digest('password') %>
 
-other_user:
+tyrion:
   name: Tyrion Lannister
   email: tyrion@lannister.com
   password_digest: <%= User.digest('lannister') %>
