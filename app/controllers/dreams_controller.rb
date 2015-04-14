@@ -1,4 +1,5 @@
 class DreamsController < ApplicationController
+  before_action :logged_in_user, only: [:show, :create, :destroy]
 
   def show
     @dream = Dream.find(params[:id])
