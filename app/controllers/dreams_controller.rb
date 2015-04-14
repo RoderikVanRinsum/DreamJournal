@@ -1,6 +1,6 @@
 class DreamsController < ApplicationController
   before_action :logged_in_user, only: [:show, :create, :destroy]
-  before_action :correct_user, only: [:show, :destroy]
+  before_action :correct_user, only: [:show]
 
   def show
     @dream = Dream.find(params[:id])
@@ -20,6 +20,7 @@ class DreamsController < ApplicationController
   end
 
   def destroy
+    @dream = Dream.find(params[:id])
     @dream.destroy
     flash[:success] = "Dream successfully deleted!"
     redirect_to request.referrer || root_url
