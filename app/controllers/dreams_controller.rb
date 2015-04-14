@@ -1,6 +1,6 @@
 class DreamsController < ApplicationController
   before_action :logged_in_user, only: [:show, :create, :destroy]
-  before_action :correct_user, only: [:show, :create, :destroy]
+  before_action :correct_user, only: [:show, :destroy]
 
   def show
     @dream = Dream.find(params[:id])
@@ -13,9 +13,16 @@ class DreamsController < ApplicationController
       flash[:success] = 'Dream was successfully added'
       redirect_to current_user
     else
-      @dreams = Dream.order("created_at DESC")
-      render 'index', locals: {form_hidden: false}
+      @user = current_user
+      @dreams = Dream.where(user_id: current_user.id).between(@date_from, @date_to).search(params[:keyword]).lucid?(params[:lucid])
+      render 'users/show', locals: {form_hidden: false}
     end
+  end
+
+  def destroy
+    @dream.destroy
+    flash[:success] = "Dream successfully deleted!"
+    redirect_to request.referrer || root_url
   end
 
   private
