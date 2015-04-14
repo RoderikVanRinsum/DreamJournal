@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'dreamsigns' => 'dreamsigns#index'
-  resources :dreams
+  resources :dreams, only: [:show, :create, :destroy]
   resources :users
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
