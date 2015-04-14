@@ -1,5 +1,8 @@
 <article id="dream-<%= dream.id %>">
   <h3><%= link_to dream.name, dream %></h3>
-  <p><%= dream.description %> | <%= link_to "delete", dream, method: :delete,
-                                       data: { confirm: "You sure?" } %></p>
+  <p><%= dream.description %></p>
+  <span class="timestamp">
+    Created <%= time_ago_in_words(dream.created_at) %> ago | <%= link_to "delete", dream, 
+                                                  method: :delete, data: { confirm: "You sure?" } %>
+  </span>
 </article>
