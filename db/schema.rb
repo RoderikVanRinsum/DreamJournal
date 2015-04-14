@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325184227) do
+ActiveRecord::Schema.define(version: 20150414083623) do
 
   create_table "dream_dreamsigns", force: :cascade do |t|
     t.integer  "dream_id"
@@ -31,7 +31,11 @@ ActiveRecord::Schema.define(version: 20150325184227) do
     t.datetime "updated_at",  null: false
     t.boolean  "lucid"
     t.text     "keywords"
+    t.integer  "user_id"
   end
+
+  add_index "dreams", ["user_id", "created_at"], name: "index_dreams_on_user_id_and_created_at"
+  add_index "dreams", ["user_id"], name: "index_dreams_on_user_id"
 
   create_table "dreamsigns", force: :cascade do |t|
     t.string   "name"
