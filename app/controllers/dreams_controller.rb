@@ -6,11 +6,11 @@ class DreamsController < ApplicationController
   end
 
   def create
-    @dream = Dream.new(dream_params)
+    @dream = current_user.dreams.build(dream_params)
 
     if @dream.save
       flash[:success] = 'Dream was successfully added'
-      redirect_to @dream
+      redirect_to current_user
     else
       @dreams = Dream.order("created_at DESC")
       render 'index', locals: {form_hidden: false}
