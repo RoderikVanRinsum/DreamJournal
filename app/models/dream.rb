@@ -6,6 +6,7 @@ class Dream < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
 
+  default_scope -> { order("date DESC") }
   scope :search, ->(keyword) { where('keywords LIKE ?', "%#{keyword.downcase}%") if keyword.present? }
   scope :lucid?, ->(is_lucid) { where( lucid: true ) if is_lucid == 'true' }
   scope :between, ->(from, to) { where('date between ? and ?', from, to) if from && to }

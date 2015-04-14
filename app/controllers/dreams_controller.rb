@@ -4,7 +4,7 @@ class DreamsController < ApplicationController
     
     parse_date if params[:from] && params[:to]
 
-    @dreams = Dream.between(@date_from, @date_to).search(params[:keyword]).lucid?(params[:lucid]).order("date DESC")
+    @dreams = Dream.between(@date_from, @date_to).search(params[:keyword]).lucid?(params[:lucid])
     @dream = Dream.new
     @form_hidden = true
   end
