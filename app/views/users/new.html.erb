@@ -2,7 +2,7 @@
   <section class="user-form">
     <h2>Create new user</h2>
     <%= form_for @user do |f| %>
-      <%= render 'error_messages' %>
+      <%= render 'shared/error_messages', object: f.object %>
       <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control", placeholder: "Name" %>

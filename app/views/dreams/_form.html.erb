@@ -1,7 +1,7 @@
 <div class="dream-form">  
   <h2>Add new dream</h2>
   <%= form_for(@dream) do |f| %>
-    <%= render 'shared/error_messages' %>
+    <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-group">
       <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
