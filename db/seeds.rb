@@ -17,6 +17,7 @@ hurry = Dreamsign.create!(name: "Hurry",
 closed_eyes = Dreamsign.create!(name: "Eyes closed",
                                 description: "You're trying to open your eyes, but it's impossible.")
 user = User.create!(name: 'test_user', email: 'test_user@test.test', password: 'password', password_confirmation: 'password')
+other_user = User.create!(name: 'other_user', email: 'other_test_user@test.test', password: 'password', password_confirmation: 'password')
 
 50.times do |i|
   name = Faker::Lorem.sentence
@@ -24,12 +25,13 @@ user = User.create!(name: 'test_user', email: 'test_user@test.test', password: '
   date = Faker::Time.backward(60)
   lucid = (rand > 0.5 ? true : false)
   signs = (rand < 0.5 ? [running] : [running, hurry, closed_eyes] )
+  user_id = ( rand > 0.5 ? user.id : other_user.id)
   Dream.create( name: name,
                 description: description,
                 date: date,
                 lucid: lucid,
   dreamsigns: signs,
-  user_id: user.id)
+  user_id: user_id)
 end
 
 puts "Created #{Dream.count} books!"
