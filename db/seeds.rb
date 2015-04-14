@@ -8,6 +8,7 @@
 
 Dream.destroy_all
 Dreamsign.destroy_all
+User.destroy_all
 
 running = Dreamsign.create!(name: "Running",
                  description: "You are running away for something, you don't know what. It's dangerous.")
@@ -15,6 +16,7 @@ hurry = Dreamsign.create!(name: "Hurry",
                  description: "You're hurrying to the airport to catch your flight.")
 closed_eyes = Dreamsign.create!(name: "Eyes closed",
                                 description: "You're trying to open your eyes, but it's impossible.")
+user = User.create!(name: 'test_user', email: 'test_user@test.test', password: 'password', password_confirmation: 'password')
 
 50.times do |i|
   name = Faker::Lorem.sentence
@@ -26,7 +28,8 @@ closed_eyes = Dreamsign.create!(name: "Eyes closed",
                 description: description,
                 date: date,
                 lucid: lucid,
-  dreamsigns: signs)
+  dreamsigns: signs,
+  user_id: user.id)
 end
 
 puts "Created #{Dream.count} books!"

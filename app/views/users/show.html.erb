@@ -1,1 +1,25 @@
-<%= @user.name %>, <%= @user.email %>
+<div class="col-md-7 col-md-offset-1">
+  <section class="main-content">
+    <%= @user.name %>, <%= @user.email %>
+
+    <% if @user.dreams.any? %>
+      <h2>Dreams (<%= @dreams.count %>)</h2>
+      <button class="btn btn-primary" id="add-dream">Add dream</button>
+
+      <!-- pass variable to JS -->
+      <%= javascript_tag do %>
+        window.form_hidden = '<%= @form_hidden %>';
+      <% end %>
+
+      <%= render 'dreams/form' %>
+
+      <%= render @dreams %>
+    <% end %>
+  </section>
+</div>
+
+<div class="col-md-3">
+  <aside class="search-sidebar">
+    <%= render 'layouts/form' %>
+  </aside>
+</div>

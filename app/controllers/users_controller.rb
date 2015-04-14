@@ -4,6 +4,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    parse_date if params[:from] && params[:to]
+
+    @dreams = Dream.between(@date_from, @date_to).search(params[:keyword]).lucid?(params[:lucid])
+    @dream = @user.dreams.build
+    @form_hidden = true
   end
 
   def new
@@ -52,6 +57,17 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def parse_date
+      from = params[:from]
+      to = params[:to]
+
+      if (from["date(1i)"].present? && from["date(2i)"].present? && from["date(3i)"].present? && 
+          to["date(1i)"].present? && to["date(2i)"].present? && to["date(3i)"].present?)
+        @date_from = Date.new from["date(1i)"].to_i, from["date(2i)"].to_i, from["date(3i)"].to_i
+        @date_to = Date.new to["date(1i)"].to_i, to["date(2i)"].to_i, to["date(3i)"].to_i
+      end
     end
   
 end

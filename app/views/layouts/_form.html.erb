@@ -2,7 +2,7 @@
 
   <h2>Browse</h2>
 
-  <%= form_tag(dreams_path, method: "get") do %>
+  <%= form_tag(user_path(current_user), method: "get") do %>
 
     <div class="form-group">
       <%= text_field_tag :keyword, params[:keyword], class: 'form-control', placeholder: 'Keyword' %>
