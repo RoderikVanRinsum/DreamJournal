@@ -1,4 +1,5 @@
 <article id="dream-<%= dream.id %>">
   <h3><%= link_to dream.name, dream %></h3>
-  <p><%= dream.description %></p>
+  <p><%= dream.description %> | <%= link_to "delete", dream, method: :delete,
+                                       data: { confirm: "You sure?" } %></p>
 </article>
