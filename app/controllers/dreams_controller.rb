@@ -1,5 +1,6 @@
 class DreamsController < ApplicationController
   before_action :logged_in_user, only: [:show, :create, :destroy]
+  before_action :correct_user, only: [:show, :create, :destroy]
 
   def show
     @dream = Dream.find(params[:id])
@@ -20,6 +21,14 @@ class DreamsController < ApplicationController
   private
     def dream_params
       params.require(:dream).permit(:name, :description, :date, :lucid, dreamsign_ids: [] )
+    end
+
+    def correct_user
+      @dream = Dream.find(params[:id])
+      unless current_user?(@dream.user)
+        flash[:danger] = "Spy alert! Dream ##{params[:id]} is not yours!"
+        redirect_to(root_url) 
+      end
     end
     
 end
