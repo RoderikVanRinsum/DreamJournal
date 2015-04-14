@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     parse_date if params[:from] && params[:to]
 
-    @dreams = Dream.between(@date_from, @date_to).search(params[:keyword]).lucid?(params[:lucid])
+    @dreams = Dream.where(user_id: current_user.id).between(@date_from, @date_to).search(params[:keyword]).lucid?(params[:lucid])
     @dream = @user.dreams.build
     @form_hidden = true
   end
